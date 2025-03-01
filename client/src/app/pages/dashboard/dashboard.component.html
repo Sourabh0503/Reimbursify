@@ -15,7 +15,7 @@
                             <div class="track-card-content">
                                 <div class="title-section">
                                     <span class="title">Pending reimbursement</span>
-                                    <div class="card-svg" style="background-color: #f9f3ec63;">
+                                    <div class="card-svg" style="background-color: #f9f3ec91;">
                                         <app-svg svgFile="assets/svg/timer.svg" [svgSize]="24" [svgColor]="'#ffb319'"></app-svg>
                                     </div>
                                 </div>
@@ -89,35 +89,133 @@
                     </div>
                 </div>
                 <div class="container2">
-                    <div class="track-card">
-                        <app-info-card [bgColor]="'var(--primary-bg-color)'"
-                            [contentTemplate]="track_content_1" [footerTemplate]="track_footer_1">
+                    <div class="summary-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'" [headerTemplate]="summary_header_1"
+                            [contentTemplate]="summary_content_1" [footerTemplate]="summary_footer_1">
                         </app-info-card>
-
-                        <ng-template #track_content_1>
-                            <div class="track-card-content">
-                                <div class="title-section">
-                                    <span class="title">Pending reimbursement</span>
-                                    <div class="card-svg" style="background-color: #f9f3ec63;">
-                                        <app-svg svgFile="assets/svg/timer.svg" [svgSize]="24" [svgColor]="'#ffb319'"></app-svg>
-                                    </div>
-                                </div>
-                                <div class="count-section"><span>75</span></div>
-                                <div class="link-section">
-                                    <span class="link">View All Request</span>
+                        <ng-template #summary_header_1>
+                            <div class="summary-card-header">
+                                <span class="title">Top voilators</span>
+                                <div class="duration-section">
+                                    <span class="duration">This Year</span>
+                                    <app-svg svgFile="assets/svg/arrow-down.svg" [svgSize]="20" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
                                 </div>
                             </div>
                         </ng-template>
-                        <ng-template #track_footer_1>
-                            <div class="track-card-footer">
-                                <span>35%</span>
-                                <app-svg svgFile="assets/svg/Increasing.svg" [svgSize]="20" [svgColor]="'var(--primary-success)'"></app-svg>
-                                <span>in last 30 days</span>
+
+                        <ng-template #summary_content_1>
+                            <div class="summary-card-content">
+                                <div class="card-item" *ngFor="let user of TopVoilators.slice(0,4)">
+                                    <app-user-name [userId]="user.UserId" [showDepartment]="true" [ImageSize]="40"></app-user-name>
+                                    <div class="spending-section">
+                                        <span class="amount">{{"\u20B9 "+user.amount}}</span>
+                                        <span class="count">{{'(' + user.count + ' Expenses)'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #summary_footer_1>
+                            <div class="summary-card-footer">
+                                <span class="footer-link">View All</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="summary-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'" [headerTemplate]="summary_header_2"
+                            [contentTemplate]="summary_content_2" [footerTemplate]="summary_footer_2">
+                        </app-info-card>
+                        <ng-template #summary_header_2>
+                            <div class="summary-card-header">
+                                <span class="title">Overall summary</span>
+                                <div class="duration-section">
+                                    <span class="duration">This Year</span>
+                                    <app-svg svgFile="assets/svg/arrow-down.svg" [svgSize]="20" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #summary_content_2>
+                            <div class="summary-card-content">
+                                <div class="expense_item">
+                                    <div class="card-svg" style="background-color: #faeddf91;"> 
+                                        <app-svg svgFile="assets/svg/money-spend.svg" [svgSize]="28" [svgColor]="'#d9a35d'"></app-svg>
+                                    </div>
+                                    <div class="expense_item-info">
+                                        <div class="title-section">
+                                           <span class="title">Total Expenses</span>
+                                           <app-svg svgFile="assets/svg/info-circle.svg" [svgSize]="16" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
+                                        </div>
+                                        <span class="info">{{"\u20B9 4,52,328"}}</span>  
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="expense_item">
+                                    <div class="card-svg" style="background-color: var(--primary-warning-bg);"> 
+                                        <app-svg svgFile="assets/svg/wallet.svg" [svgSize]="28" [svgColor]="'var(--primary-warning)'"></app-svg>
+                                    </div>
+                                    <div class="expense_item-info">
+                                        <div class="title-section">
+                                           <span class="title">Total Advances</span>
+                                           <app-svg svgFile="assets/svg/info-circle.svg" [svgSize]="16" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
+                                        </div>
+                                        <span class="info">{{"\u20B9 1,29,896"}}</span>  
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="expense_item">
+                                    <div class="card-svg" style="background-color: var(--primary-info-bg);"> 
+                                        <app-svg svgFile="assets/svg/reimbursement.svg" [svgSize]="28" [svgColor]="'var(--primary-info)'"></app-svg>
+                                    </div>
+                                    <div class="expense_item-info">
+                                        <div class="title-section">
+                                           <span class="title">Total Reimbursements</span>
+                                           <app-svg svgFile="assets/svg/info-circle.svg" [svgSize]="16" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
+                                        </div>
+                                        <span class="info">{{"\u20B9 4,52,328"}}</span>  
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #summary_footer_2>
+                            <div class="summary-card-footer">
+                                <span class="footer-link">View Analytics</span>
                             </div>
                         </ng-template>
                     </div>
                 </div>
-                <div class="container3">Div 3</div>
+                <div class="container3">
+                    <div class="spending-card">
+                        <app-info-card [bgColor]="'var(--secondary-bg-color)'" [headerTemplate]="spendings_header"
+                            [contentTemplate]="spendings_content">
+                        </app-info-card>
+                        <ng-template #spendings_header>
+                            <div class="spending-card-header">
+                                <span class="title">Top spending users</span>
+                                <div class="duration-section">
+                                    <span class="duration">This month</span>
+                                    <app-svg svgFile="assets/svg/arrow-down.svg" [svgSize]="20" [svgColor]="'var(--secondary-text-color)'"></app-svg> 
+                                </div>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #spendings_content>
+                            <div class="spending-card-content">
+                                <div class="card-col-info">
+                                    <span>USERNAME</span>
+                                    <span>AMOUNT (INR)</span>
+                                </div>
+                                <div class="card-items-conatiner">
+                                    <div class="card-item" *ngFor="let user of TopVoilators.slice(0,8)">
+                                        <app-user-name [userId]="user.UserId" [showDepartment]="true" [ImageSize]="40"></app-user-name>
+                                        <div class="spending">
+                                            <span>{{"\u20B9 "+user.amount}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="Contact-container">

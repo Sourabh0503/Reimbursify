@@ -10,6 +10,7 @@ import { User } from '../../models/User.model';
 })
 export class UserNameComponent {
   @Input() userId: string | undefined;
+  @Input() ImageSize: number = 32;
   @Input() showDepartment: boolean= false;
   user: User | undefined;
   constructor(private readonly userService:UserService) {

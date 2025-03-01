@@ -4,15 +4,21 @@
     align-items: center;
     justify-content: flex-start;
 }
-
-.img{
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
-span{
+.name{
     font-size: 14px;
     font-weight: 400;
     color: var(--primary-text-color);
+}
+.department{
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--secondary-text-color);
 }

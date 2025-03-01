@@ -18,7 +18,7 @@ export class ReimbursementComponent {
   activeMenu: string | null = null;
   
 
-  constructor(private readonly reimburesementService:ReimbursementService, private menuService:MenuService) { 
+  constructor(private readonly reimburesementService:ReimbursementService, private readonly menuService:MenuService) { 
     this.columnNames = ['title', 'date', 'category', 'userid', 'amount', 'status'];
     this.AllReimbursementRequests = this.reimburesementService.getAllReimbursementRequests();
     this.ShowableReimbursementRequests=this.AllReimbursementRequests;
@@ -29,6 +29,7 @@ export class ReimbursementComponent {
 
   onTypeChange(type:number){
     this.selectedType=type;
+    this.selectedRow=null;
     if(this.selectedType==1){
       this.ShowableReimbursementRequests=this.AllReimbursementRequests;
     }

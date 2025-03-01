@@ -1,6 +1,10 @@
 <div class="user-container" *ngIf="user">
-    <img [src]="user.imageUrl" alt="profile" class="img">
-    <span>{{user.name}}</span>
+    <img [src]="user.imageUrl" alt="profile" [width]="ImageSize" [height]="ImageSize" [style]="{'border-radius': ImageSize + 'px'}">
+    <div class="info">
+        <span class="name" [ngStyle]="{
+            'font-size': !showDepartment ? '14px' : '16px'}">{{user.name}}</span>
+        <span class="department" *ngIf="showDepartment">{{user.department}}</span>
+    </div>
 </div>
 
 <span *ngIf="!user">No User Found</span>

@@ -13,7 +13,7 @@ export class AuthService {
       id: '1',
       name: 'Sourabh Agrawal',
       email: 'Sourabh.agrawal@gmail.com',
-      imageUrl: 'https://ui-avatars.com/api/?name=agrawal',
+      imageUrl: 'assets/images/photos/user10.png',
       type: 'admin'
     }
   }
