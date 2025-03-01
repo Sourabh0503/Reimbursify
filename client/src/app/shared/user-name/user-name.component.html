@@ -1,0 +1,6 @@
+<div class="user-container" *ngIf="user">
+    <img [src]="user.imageUrl" alt="profile" class="img">
+    <span>{{user.name}}</span>
+</div>
+
+<span *ngIf="!user">No User Found</span>

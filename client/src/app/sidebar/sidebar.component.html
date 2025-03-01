@@ -1,0 +1,72 @@
+<div class="sidebar">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="../../assets/images/AppLogo.png" alt="Logo" height="38px" width="38px">
+            <span style="color: white;">Reimbursify</span>
+        </div>
+        <div class="user-type">ADMIN</div>
+    </div>
+    <div class="nav-container">
+        <div class="link-btn" [routerLink]="'/dashboard'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="this.router.url === '/dashboard' ? 'assets/svg/dashboard-fill.svg' : 'assets/svg/dashboard.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/dashboard' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Dashboard</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/user'" routerLinkActive="active">
+            <app-svg [svgFile]="'assets/svg/user-group.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/user' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Users</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/reimbursement'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="'assets/svg/reimbursement.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/reimbursement' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Reimbursement</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/advance'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="'assets/svg/wallet.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/advance' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Advance</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/reports'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="'assets/svg/report.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/reports' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Reports</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/analytics'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="'assets/svg/analytics.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/analytics' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Analytics</span>
+        </div>
+        <div class="link-btn" [routerLink]="'/settings'" routerLinkActive="active">
+            <app-svg
+                [svgFile]="'assets/svg/setting.svg'"
+                [svgSize]="24"
+                [svgColor]="this.router.url === '/settings' ? 'var(--sidebar-bg-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Settings</span>
+        </div>
+    </div>
+
+    <div class="theme-container">
+        <button class="toggle-btn" [ngClass]="{ 'active_btn': !isDarkTheme }" (click)="toggleTheme(false)">
+            <app-svg svgFile="assets/svg/sun.svg" [svgSize]="24"
+                [svgColor]="!isDarkTheme? 'var(--primary-selected-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Light</span>
+        </button>
+        <button class="toggle-btn" [ngClass]="{ 'active_btn': isDarkTheme }" (click)="toggleTheme(true)">
+            <app-svg svgFile="assets/svg/moon.svg" [svgSize]="24"
+                [svgColor]="isDarkTheme? 'var(--primary-selected-color)' : 'var(--secondary-text-color)'"></app-svg>
+            <span>Dark</span>
+        </button>
+    </div>
+</div>

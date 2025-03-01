@@ -1,0 +1,204 @@
+<div class="main-container">
+    <div class="Dashboard">
+        <div class="Cards-container">
+            <div class="title-section">
+                <div class="title">Dashboard</div>
+            </div>
+            <div class="Information">
+                <div class="container1">
+                    <div class="track-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'"
+                            [contentTemplate]="track_content_1" [footerTemplate]="track_footer_1">
+                        </app-info-card>
+
+                        <ng-template #track_content_1>
+                            <div class="track-card-content">
+                                <div class="title-section">
+                                    <span class="title">Pending reimbursement</span>
+                                    <div class="card-svg" style="background-color: #f9f3ec63;">
+                                        <app-svg svgFile="assets/svg/timer.svg" [svgSize]="24" [svgColor]="'#ffb319'"></app-svg>
+                                    </div>
+                                </div>
+                                <div class="count-section"><span>75</span></div>
+                                <div class="link-section">
+                                    <span class="link">View All Request</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #track_footer_1>
+                            <div class="track-card-footer">
+                                <span>35%</span>
+                                <app-svg svgFile="assets/svg/Increasing.svg" [svgSize]="20" [svgColor]="'var(--primary-success)'"></app-svg>
+                                <span>in last 30 days</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="track-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'"
+                            [contentTemplate]="track_content_2" [footerTemplate]="track_footer_2">
+                        </app-info-card>
+
+                        <ng-template #track_content_2>
+                            <div class="track-card-content">
+                                <div class="title-section">
+                                    <span class="title">Approved reimbursement</span>
+                                    <div class="card-svg" style="background-color: var(--primary-success-bg)">
+                                        <app-svg svgFile="assets/svg/reimbursement.svg" [svgSize]="24" [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                </div>
+                                <div class="count-section"><span>478</span></div>
+                                <div class="link-section">
+                                    <span class="link">Track All Reimbursement</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #track_footer_2>
+                            <div class="track-card-footer">
+                                <span>15%</span>
+                                <app-svg svgFile="assets/svg/Increasing.svg" [svgSize]="20" [svgColor]="'var(--primary-success)'"></app-svg>
+                                <span>in last 30 days</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="track-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'"
+                            [contentTemplate]="track_content_3" [footerTemplate]="track_footer_3">
+                        </app-info-card>
+
+                        <ng-template #track_content_3>
+                            <div class="track-card-content">
+                                <div class="title-section">
+                                    <span class="title">Advances Request</span>
+                                    <div class="card-svg" style="background-color: var(--primary-warning-bg)">
+                                        <app-svg svgFile="assets/svg/wallet.svg" [svgSize]="24" [svgColor]="'var(--primary-warning)'"></app-svg>
+                                    </div>
+                                </div>
+                                <div class="count-section"><span>62</span></div>
+                                <div class="link-section">
+                                    <span class="link">View All Request</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #track_footer_3>
+                            <div class="track-card-footer">
+                                <span>9%</span>
+                                <app-svg svgFile="assets/svg/Decreasing.svg" [svgSize]="20" [svgColor]="'var(--primary-warning)'"></app-svg>
+                                <span>in last 30 days</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+                <div class="container2">
+                    <div class="track-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'"
+                            [contentTemplate]="track_content_1" [footerTemplate]="track_footer_1">
+                        </app-info-card>
+
+                        <ng-template #track_content_1>
+                            <div class="track-card-content">
+                                <div class="title-section">
+                                    <span class="title">Pending reimbursement</span>
+                                    <div class="card-svg" style="background-color: #f9f3ec63;">
+                                        <app-svg svgFile="assets/svg/timer.svg" [svgSize]="24" [svgColor]="'#ffb319'"></app-svg>
+                                    </div>
+                                </div>
+                                <div class="count-section"><span>75</span></div>
+                                <div class="link-section">
+                                    <span class="link">View All Request</span>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #track_footer_1>
+                            <div class="track-card-footer">
+                                <span>35%</span>
+                                <app-svg svgFile="assets/svg/Increasing.svg" [svgSize]="20" [svgColor]="'var(--primary-success)'"></app-svg>
+                                <span>in last 30 days</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+                <div class="container3">Div 3</div>
+            </div>
+        </div>
+        <div class="Contact-container">
+            <div class="details">
+                <div class="contact-cards-container">
+                    <div class="contact-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'" [headerTemplate]="contact_header_1"
+                            [contentTemplate]="contact_content_1">
+                        </app-info-card>
+                        <ng-template #contact_header_1>
+                            <div class="contact-card-header"><span>Contact Us</span></div>
+                        </ng-template>
+
+                        <ng-template #contact_content_1>
+                            <div class="contact-card-content">
+                                <div class="card-item">
+                                    <div class="card-svg">
+                                        <app-svg svgFile="assets/svg/email.svg" [svgSize]="28"
+                                            [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                    <div class="card-item-info">
+                                        <span class="title">Email</span>
+                                        <span class="info">help.reimbursiffy.in</span>
+                                    </div>
+                                </div>
+                                <div class="card-item">
+                                    <div class="card-svg">
+                                        <app-svg svgFile="assets/svg/call.svg" [svgSize]="28"
+                                            [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                    <div class="card-item-info">
+                                        <span class="title">Call</span>
+                                        <span class="info">+91 9999-999-999</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="contact-card">
+                        <app-info-card [bgColor]="'var(--primary-bg-color)'" [headerTemplate]="contact_header_2"
+                            [contentTemplate]="contact_content_2">
+                        </app-info-card>
+                        <ng-template #contact_header_2>
+                            <div class="contact-card-header"><span>Support</span></div>
+                        </ng-template>
+
+                        <ng-template #contact_content_2>
+                            <div class="contact-card-content">
+                                <div class="card-item">
+                                    <div class="card-svg">
+                                        <app-svg svgFile="assets/svg/report.svg" [svgSize]="28"
+                                            [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                    <div class="card-item-info">
+                                        <span class="info">Help Documentation</span>
+                                    </div>
+                                </div>
+                                <div class="card-item">
+                                    <div class="card-svg">
+                                        <app-svg svgFile="assets/svg/question.svg" [svgSize]="28"
+                                            [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                    <div class="card-item-info">
+                                        <span class="info">FAQ</span>
+                                    </div>
+                                </div>
+                                <div class="card-item">
+                                    <div class="card-svg">
+                                        <app-svg svgFile="assets/svg/book.svg" [svgSize]="28"
+                                            [svgColor]="'var(--primary-success)'"></app-svg>
+                                    </div>
+                                    <div class="card-item-info">
+                                        <span class="info">Essentail Business Guides</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">&copy; 2025 All Rights Reserved</div>
+        </div>
+    </div>
+</div>

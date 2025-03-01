@@ -1,0 +1,29 @@
+<div class="main-container">
+    <div class="dropdown-arrow"></div>
+    <div class="top-bar">
+        <div class="type-conatiner">
+            <span [ngClass]="{ 'active': isNotification }" (click)="toggleType($event,true)">Notifications</span>
+            <span [ngClass]="{ 'active': !isNotification }" (click)="toggleType($event,false)">Announcements</span>
+        </div>
+        <div class="cross-conatiner">
+            <app-svg svgFile="assets/svg/close-circle.svg" [svgSize]="24" [svgColor]="'var(--secondary-text-color)'"></app-svg>
+        </div>
+    </div>
+    <div class="data-container">
+        <ng-container *ngFor="let notification of notifications">
+            <div class="notification-card">
+                <div class="notification-icon" [ngClass]="notification.type">
+                    <app-svg *ngIf="notification.type=='info'" svgFile="assets/svg/report.svg" [svgSize]="24" [svgColor]="'var(--primary-info)'"></app-svg>
+                    <app-svg *ngIf="notification.type=='accept'" svgFile="assets/svg/like.svg" [svgSize]="24" [svgColor]="'var(--primary-success)'"></app-svg>
+                    <app-svg *ngIf="notification.type=='decline'" svgFile="assets/svg/dislike.svg" [svgSize]="24" [svgColor]="'var(--primary-warning)'"></app-svg>
+                </div>
+                <div class="notification-discription">
+                    <span class="discription">{{notification.description}}</span>
+                    <span class="time">{{notification.time | date:'shortTime'}}</span>
+                </div>
+            </div>
+        </ng-container>
+        <div class="no-data" *ngIf="notifications.length === 0">No data available</div>
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="main-container">
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="content">
+    <div class="top-bar">
+      <div class="button-conatiner">
+        <div class="quick-add" (click)="toggleMenu($event,'quickAdd')">
+          <div class="logo" [ngClass]="{ 'active': this.activeMenu==='quickAdd'}">
+            <app-svg class="logo-main" svgFile="assets/svg/add.svg" [svgSize]="20"
+              [svgColor]="'var(--secondary-text-color)'"></app-svg>
+            <span class="logo-content">
+              <span class="logo-text">Quick Add</span>
+              <app-svg class="drop-logo" svgFile="assets/svg/arrow-down.svg" [svgSize]="20"
+                [svgColor]="'none'"></app-svg>
+            </span>
+          </div>
+        </div>
+        <button class="notification-logo" (click)="toggleMenu($event,'notifications')">
+          <app-svg svgFile="assets/svg/notification.svg" [svgSize]="20"
+            [svgColor]="'var(--secondary-text-color)'"></app-svg>
+        </button>
+      </div>
+      <div class="user-conatiner" (click)="toggleMenu($event,'profileMenu')">
+        <div class="user-name">{{loggedInuser?.name}}</div>
+        <img [src]="loggedInuser?.imageUrl" alt='user'[width]="40" [height]="40" style="border-radius: 40px;">
+        <app-svg class="drop-logo" svgFile="assets/svg/arrow-down.svg" [svgSize]="20" [svgColor]="'none'"></app-svg>
+      </div>
+    </div>
+    <div class="router-outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<app-profile-menu *ngIf="activeMenu === 'profileMenu'" class="menu"
+  [ngStyle]="{'top.px': menuService.position.y, 'left.px': menuService.position.x-290}"></app-profile-menu>
+<app-notifications *ngIf="activeMenu === 'notifications'" class="menu"
+  [ngStyle]="{'top.px': menuService.position.y, 'left.px': menuService.position.x-265}"></app-notifications>
+<app-quick-add *ngIf="activeMenu === 'quickAdd'" class="menu"
+  [ngStyle]="{'top.px': menuService.position.y, 'left.px': menuService.position.x-160}"></app-quick-add>
+<app-row-more-option *ngIf="activeMenu === 'more-option'" class="menu"
+[ngStyle]="{'top.px': menuService.position.y+20, 'left.px': menuService.position.x-160}"></app-row-more-option>

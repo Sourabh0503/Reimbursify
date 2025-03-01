@@ -1,0 +1,16 @@
+<div 
+    [style.backgroundColor]="bgColor" 
+    class="card">
+    
+    <div class="header" *ngIf="headerTemplate">
+        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </div>
+    
+    <div class="content">
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+    
+    <div class="footer" *ngIf="footerTemplate">
+        <ng-container *ngTemplateOutlet="footerTemplate"></ng-container>
+    </div>
+</div>

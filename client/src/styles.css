@@ -1,0 +1,96 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+}
+
+* {
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+}
+button{
+    border: none;
+    background: none;
+}
+
+
+
+/* For Webkit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+    height: 6px; /* Thin scrollbar for horizontal scroll */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* No background */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.3); /* Subtle color */
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 100, 100, 0.4); /* Darker on hover */
+  }
+  
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: var(--primary-text-color);
+    cursor: default;
+}
+
+.dropdown-item:hover{
+    background-color: var(--primary-selected-color) !important;
+    color: var(--primary-text-color) !important;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+:root {
+    --sidebar-bg-color: #1b1d21;
+    --primary-text-color: #1b1d21;
+    --primary-selected-color: #3dd5c8;
+    --primary-bg-color: #ffffff;
+    --primary-border-color: #c8cfd8;
+    --primary-btn-color: #eef2ffee;
+    --secondary-bg-color: #eef3f7;
+    --secondary-text-color: #6c757d;
+    --primary-table-head-color: #f2f3ff;
+    --primary-warning:#e5666d;
+    --primary-info:#6897e3;
+    --primary-success:#25a79c;
+    --primary-warning-bg:#febeae50;
+    --primary-info-bg:#6897e350;
+    --primary-success-bg:#83efb959;
+}
+  
+.dark-theme {
+    --sidebar-bg-color: #0f0f10;
+    --primary-text-color: #ffffff;
+    --primary-selected-color: #00a99d;
+    --primary-bg-color: #181a1e;
+    --primary-border-color: #343a40;
+    --primary-btn-color: #252a30;
+    --secondary-bg-color: #22252b;
+    --secondary-text-color: #b0b3b8;
+    --primary-table-head-color: #3a3d5c;
+}
+
+/* @media screen and (max-height: 999px) {
+    body {
+        transform: scale(0.8);
+        transform-origin: top left;
+        width: 125%;
+        height: 125%;
+    }
+} */

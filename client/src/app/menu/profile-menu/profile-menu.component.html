@@ -1,0 +1,31 @@
+<div class="main-container">
+    <div class="dropdown-arrow"></div>
+    <div class="top-bar">
+        <div class="image-conatiner">
+            <img [src]="loggedInUser?.imageUrl" alt='user'[width]="54" [height]="54" style="border-radius: 54px;">
+        </div>
+        <div class="info-conatiner">
+            <div class="name">{{loggedInUser?.name}}</div>
+            <div class="email">{{loggedInUser?.email}}</div>
+        </div>
+    </div>
+    <div class="options-container">
+        <div class="button-container dropdown-item">
+            <app-svg svgFile="assets/svg/user-circle.svg" [svgSize]="24" [svgColor]="'var(--secondary-text-color)'" [fill]="false"></app-svg>
+            <span >My Profile</span>
+        </div>
+        <div class="button-container dropdown-item">
+            <app-svg svgFile="assets/svg/setting.svg" [svgSize]="24" [svgColor]="'var(--secondary-text-color)'" [fill]="false"></app-svg>
+            <span >Account Settings</span>
+        </div>
+        <div class="button-container dropdown-item">
+            <app-svg svgFile="assets/svg/help.svg" [svgSize]="24" [svgColor]="'var(--secondary-text-color)'" [fill]="false"></app-svg>
+            <span >Help & Support</span>
+        </div>
+    </div>
+    <div class="button-container dropdown-item">
+        <app-svg svgFile="assets/svg/logout.svg" [svgSize]="24" [svgColor]="'var(--secondary-text-color)'" [fill]="false"></app-svg>
+        <span >Logout</span>
+    </div>
+
+</div>

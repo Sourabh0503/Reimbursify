@@ -1,0 +1,116 @@
+<div class="main-container">
+    <div class="title-section">
+        <div class="title">Reimbursement</div>
+        <div class="search-container">
+            <div class="search-box">
+                <app-svg svgFile="assets/svg/search.svg" [svgSize]="20"
+                    [svgColor]="'var(--secondary-text-color)'"></app-svg>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="setting-icon">
+                <app-svg svgFile="assets/svg/setting.svg" [svgSize]="20"
+                    [svgColor]="'var(--secondary-text-color)'"></app-svg>
+            </div>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="grid">
+            <div class="grid-header">
+                <div class="data-options">
+                    <span (click)="onTypeChange(1)" [ngClass]="selectedType==1?'selected':''">All</span>
+                    <span (click)="onTypeChange(2)" [ngClass]="selectedType==2?'selected':''">Awaiting
+                        Reimbursement</span>
+                    <span (click)="onTypeChange(3)" [ngClass]="selectedType==3?'selected':''">Reimbursed</span>
+                </div>
+                <div class="grid-options">
+                    <div class="data-picker">
+                        <input placeholder="Select Date">
+                        <app-svg svgFile="assets/svg/calendar.svg" [svgSize]="20"
+                            [svgColor]="'var(--secondary-text-color)'"></app-svg>
+                    </div>
+                    <div class="option-btn">
+                        <div class="option">
+                            <app-svg svgFile="assets/svg/filter.svg" [svgSize]="20"
+                                [svgColor]="'var(--secondary-text-color)'"></app-svg>
+                        </div>
+                        <div class="option">
+                            <app-svg svgFile="assets/svg/download.svg" [svgSize]="20"
+                                [svgColor]="'var(--secondary-text-color)'"></app-svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-body">
+                <div class="grid-keys">
+                    <input class="key" type="checkbox" name="selectAll">
+                    <div class="key" *ngFor="let key of columnNames">
+                        <span>{{ key === 'userid' ? 'Username' : key | titleCase }} </span>
+                    </div>
+                    <div class="key">Action</div>
+                </div>
+                <div class="grid-values">
+                    <div class="value-items">
+                        <div *ngFor="let request of ShowableReimbursementRequests" class="valueRow" [ngClass]="selectedRow==request.id?'selectedRow':''">
+                            <div class="value" style="justify-content: center;"><input type="checkbox" name="selectRow">
+                            </div>
+                            <div class="value" *ngFor="let key of columnNames">
+                                <ng-container [ngSwitch]="key">
+                                    <!-- title -->
+                                    <ng-container *ngSwitchCase="'title'">
+                                        {{ request.title}}
+                                    </ng-container>
+                                    <!-- Format Date -->
+                                    <ng-container *ngSwitchCase="'date'">
+                                        {{ request.date | date:'dd MMM, yyyy' }}
+                                    </ng-container>
+                                    <!-- category -->
+                                    <div class="chip category-chip" *ngSwitchCase="'category'">
+                                        {{ request.category | titleCase}}
+                                    </div>
+                                    <!-- user -->
+                                    <ng-container *ngSwitchCase="'userid'">
+                                        <app-user-name [userId]="request.userid"></app-user-name>
+                                    </ng-container>
+                                    <!-- status -->
+                                    <div *ngSwitchCase="'status'" class="chip" [ngClass]="request.status">
+                                        {{ request.status | titleCase}}
+                                    </div>
+                                    <!-- amount -->
+                                    <ng-container *ngSwitchCase="'amount'">
+                                        {{"\u20B9 "+request.amount}}
+                                    </ng-container>
+                                </ng-container>
+                            </div>
+                            <div class="value actionBtn">
+                                <app-svg title="Accept" svgFile="assets/svg/tick-circle.svg" [svgSize]="24"
+                                    [svgColor]="'#25a79c'"></app-svg>
+                                <app-svg title="Reject" svgFile="assets/svg/close-circle.svg" [svgSize]="24"
+                                    [svgColor]="'#e5666d'"></app-svg>
+                                <app-svg svgFile="assets/svg/more.svg" [svgSize]="18" [svgColor]="'#8a959e'"
+                                    (click)="toggleMenu($event ,request.id)"></app-svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-footer">
+                <div class="footer-element">
+                    <span class="pagination">
+                        Page 1-5 of {{ ShowableReimbursementRequests.length }}
+                    </span>
+                    <div class="page-size">
+                        <span>20</span>
+                        <app-svg svgFile="assets/svg/arrow-down.svg" [svgSize]="12"
+                            [svgColor]="'var(--secondary-text-color)'"></app-svg>
+                    </div>
+                </div>
+                <div class="footer-element">
+                    <app-svg class="arrow" svgFile="assets/svg/arrow-left.svg" [svgSize]="20"
+                        [svgColor]="'var(--primary-border-color)'"></app-svg>
+                    <app-svg class="arrow" svgFile="assets/svg/arrow-right.svg" [svgSize]="20"
+                        [svgColor]="'var(--primary-border-color)'"></app-svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
