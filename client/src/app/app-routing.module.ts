@@ -6,6 +6,7 @@ import { ReimbursementComponent } from './pages/reimbursement/reimbursement.comp
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'reimbursement/:id', component: ReimbursementComponent },
   { path: 'reimbursement', component: ReimbursementComponent },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];

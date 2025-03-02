@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="count-section"><span>75</span></div>
                                 <div class="link-section">
-                                    <span class="link">View All Request</span>
+                                    <span class="link" [routerLink]="['/reimbursement', 2]">View All Request</span>
                                 </div>
                             </div>
                         </ng-template>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="count-section"><span>478</span></div>
                                 <div class="link-section">
-                                    <span class="link">Track All Reimbursement</span>
+                                    <span class="link" [routerLink]="['/reimbursement', 3]">Track All Reimbursement</span>
                                 </div>
                             </div>
                         </ng-template>
@@ -116,7 +116,7 @@
                         </ng-template>
                         <ng-template #summary_footer_1>
                             <div class="summary-card-footer">
-                                <span class="footer-link">View All</span>
+                                <span class="footer-link" [routerLink]="['/reimbursement']">View All</span>
                             </div>
                         </ng-template>
                     </div>

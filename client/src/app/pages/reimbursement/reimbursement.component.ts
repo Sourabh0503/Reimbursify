@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReimbursementRequest, Status } from '../../models/ReimbursmentRequest.model';
 import { ReimbursementService } from '../../services/reimbursement.service';
 import { MenuService } from '../../services/menu.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-reimbursement',
@@ -18,13 +19,21 @@ export class ReimbursementComponent {
   activeMenu: string | null = null;
   
 
-  constructor(private readonly reimburesementService:ReimbursementService, private readonly menuService:MenuService) { 
+  constructor(private readonly route: ActivatedRoute,private readonly reimburesementService:ReimbursementService, private readonly menuService:MenuService) { 
     this.columnNames = ['title', 'date', 'category', 'userid', 'amount', 'status'];
     this.AllReimbursementRequests = this.reimburesementService.getAllReimbursementRequests();
     this.ShowableReimbursementRequests=this.AllReimbursementRequests;
     this.menuService.activeMenu.subscribe(data=>{
       this.activeMenu=data;
     })
+  }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const idParam = params.get('id')!;
+      this.selectedType = idParam ? Number(idParam) : 1;
+      this.onTypeChange(this.selectedType);
+    });
   }
 
   onTypeChange(type:number){
